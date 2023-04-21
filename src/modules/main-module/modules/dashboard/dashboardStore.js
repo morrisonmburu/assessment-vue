@@ -15,6 +15,10 @@ export default {
       state.loading = payload;
     },
 
+    SET_DIALOG_LOADING: (state, payload) => {
+      state.dialogLoading = payload;
+    },
+
     SET_LINKS: (state, payload) => {
       if (_.findIndex(state.links, payload) === -1) {
         if (payload.access && AuthService.user) {

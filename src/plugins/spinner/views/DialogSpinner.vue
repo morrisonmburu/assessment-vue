@@ -6,8 +6,8 @@
   >
     <v-progress-circular
       indeterminate
-      size="70"
-      width="2"
+      size="50"
+      width="3"
       color="loaderColor"
       class="align-self-center mt-3"
     ></v-progress-circular>

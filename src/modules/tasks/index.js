@@ -1,5 +1,6 @@
 import taskRoutes from "./taskRoutes";
 import taskStore from "./taskStore";
+import taskLinks from "./taskLinks";
 
 export default {
   install(Vue, options) {
@@ -8,7 +9,8 @@ export default {
     }
 
     if (options.store) {
-      options.store.registerModule("Tasks", taskStore);
+      options.store.registerModule("Task", taskStore);
+      options.store.dispatch("Dashboard/setLinks", taskLinks);
     }
   },
 };

@@ -19,22 +19,21 @@
           v-if="item.sublinks"
           class="white--text"
           v-model="item.active"
+          active-class="drawer--active"
         >
           <template v-slot:activator>
             <v-list-item-icon>
               <v-icon color="white">{{ item.icon }}</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+            <v-list-item-title class="white--text">{{
+              item.title
+            }}</v-list-item-title>
           </template>
-          <v-list-item-group
-            color="topbar"
-            class="white--text"
-            active-class="drawer--active"
-          >
+          <v-list-item-group class="white--text" active-class="drawer--active">
             <v-list-item
               v-for="(sub, s) in item.sublinks"
               :key="s"
-              :to="sub.to"
+              @click="$router.push(sub.to)"
               class="white--text"
             >
               <v-list-item-icon :class="!mini ? 'mr-2 ml-6' : 'mr-2'">
@@ -74,6 +73,19 @@
         </v-list-item-group>
       </div>
     </v-list>
+    <template v-slot:append>
+      <div class="pa-2">
+        <v-btn
+          class="white--text text-capitalize"
+          :block="!mini"
+          :text="!mini"
+          @click="logout"
+          :icon="mini"
+        >
+          <v-icon>logout</v-icon> <span v-if="!mini">Logout</span>
+        </v-btn>
+      </div>
+    </template>
   </v-navigation-drawer>
 </template>
 <script>
@@ -99,6 +111,9 @@ export default {
   methods: {
     closeDrawer() {
       this.$store.dispatch("Dashboard/setMiniDrawer", !this.mini);
+    },
+    logout() {
+      this.$store.dispatch("Auth/logout");
     },
   },
 };

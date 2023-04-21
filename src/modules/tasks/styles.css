@@ -1,0 +1,46 @@
+a:hover {
+    text-decoration: underline;
+}
+
+.theme--light.v-btn-toggle:not(.v-btn-toggle--group) .v-btn.v-btn.toggl-active-btn {
+    border-color: var(--v-primary-base) !important;
+}
+
+.v-data-table-header th {
+    white-space: nowrap;
+}
+
+.v-data-table .v-data-table__wrapper table tbody tr td {
+    white-space: nowrap;
+}
+
+.filter-menu-active {
+    background-color: var(--v-primary-base) !important;
+    color: var(--v-primary-lighten-5) !important;
+}
+.theme--light.v-list-item:not(.v-list-item--active):not(.v-list-item--disabled).activeRow {
+    background: var(--v-detailedViewAvtivePrimary-base);
+    color: var(--v-detailedViewAvtiveSecondary-base);
+}
+
+.ripple>.v-btn__content {
+    align-items: start !important;
+    justify-content: start !important;
+}
+
+.v-application--is-ltr .detailedViewBackground .v-data-footer__pagination {
+    margin-left: auto
+}
+
+/*** card ***/
+.card--title {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.card--actions {
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+}

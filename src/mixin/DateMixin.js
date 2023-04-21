@@ -34,5 +34,9 @@ export default {
     getDateFormat(date) {
       return moment(date).format("Do ddd, MMM YYYY");
     },
+
+    dashedDateFrom(date) {
+      return moment(date).format("YYYY-MM-DD");
+    }
   },
 };

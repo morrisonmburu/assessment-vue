@@ -1,5 +1,3 @@
-import status from "./status";
-
-const filters = [...status];
+const filters = [];
 
 export default filters;

@@ -2,10 +2,10 @@
   <v-app id="inspire" style="background-color: #f0f0f0">
     <AppBarTopVue />
     <DrawerBarVue />
-    <div>
+    <v-container>
       <router-view name="view" />
       <router-view name="action" />
-    </div>
+    </v-container>
     <spinner />
     <confirmation />
     <Footer />
