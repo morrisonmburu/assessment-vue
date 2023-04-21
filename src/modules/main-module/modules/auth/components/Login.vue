@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="mt-n5 mb-10"><Logo /></div>
+    <div class="mt-n5 mb-10">
+      <Logo :isCard="false" :width="'30%'" :height="'30%'" />
+    </div>
     <div class="text-lg-h5 primary--text font-weight-bold my-2">Login,</div>
     <div class="text-body-2 primary--text font-weight-bold my-2">
       Welcome back, please login to your account
@@ -8,7 +10,7 @@
     <v-form ref="loginForm" v-model="isValid">
       <v-text-field
         ref="email"
-        v-model="formData.email"
+        v-model="formData.email_address"
         @copy.prevent
         outlined
         persistent-placeholder
@@ -97,7 +99,7 @@ export default {
         "Click on <strong>LOGIN</strong> button",
       ],
       formData: {
-        email: "",
+        email_address: "",
         password: "",
       },
     };

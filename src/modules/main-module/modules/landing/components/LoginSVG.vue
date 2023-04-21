@@ -19,7 +19,7 @@
       alignment-baseline="middle"
       class="login--text"
     >
-      Project Management
+      Task Management
     </text>
     <g>
       <path

@@ -1,25 +1,12 @@
 <template>
   <div>
-    <div class="mb-10 mt-10"><Logo /></div>
+    <div class="mb-10 mt-10">
+      <Logo :isCard="false" :width="'30%'" :height="'30%'" />
+    </div>
     <div class="text-justify mt-4 pb-0">
-      <v-alert
-        v-if="$store.getters['Auth/alert'].status"
-        outlined
-        dense
-        border="left"
-        :type="
-          $store.getters['Auth/alert'].status === 'success'
-            ? 'success'
-            : 'error'
-        "
-        class="mb-10"
-      >
-        {{ $store.getters["Auth/alert"].message }}
-      </v-alert>
-
       <v-text-field
         ref="email"
-        v-model="formData.email"
+        v-model="formData.email_address"
         dense
         outlined
         @copy.prevent
@@ -58,7 +45,7 @@ export default {
   data: function () {
     return {
       formData: {
-        email: "",
+        email_address: "",
       },
     };
   },

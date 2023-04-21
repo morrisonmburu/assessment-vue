@@ -22,7 +22,7 @@ export default {
       commit("Dashboard/SET_LOADING", true, { root: true });
       call("get", taskConstants.tasks)
         .then((res) => {
-          commit("MUTATE", { state: "tasks", data: res.data.data });
+          commit("MUTATE", { state: "tasks", data: res.data });
           commit("Dashboard/SET_LOADING", false, { root: true });
         })
         .catch((err) => {
@@ -34,7 +34,7 @@ export default {
       commit("Dashboard/SET_LOADING", true, { root: true });
       call("get", taskConstants.user_tasks)
         .then((res) => {
-          commit("MUTATE", { state: "user_tasks", data: res.data.data });
+          commit("MUTATE", { state: "user_tasks", data: res.data });
           commit("Dashboard/SET_LOADING", false, { root: true });
         })
         .catch((err) => {
@@ -46,7 +46,7 @@ export default {
       commit("Dashboard/SET_LOADING", true, { root: true });
       call("get", `${taskConstants.tasks}/${id}`)
         .then((res) => {
-          commit("MUTATE", { state: "task", data: res.data.data });
+          commit("MUTATE", { state: "task", data: res.data });
           commit("Dashboard/SET_LOADING", false, { root: true });
         })
         .catch((err) => {
@@ -58,7 +58,7 @@ export default {
       commit("Dashboard/SET_LOADING", true, { root: true });
       call("get", `${taskConstants.user_tasks}/${id}`)
         .then((res) => {
-          commit("MUTATE", { state: "user_task", data: res.data.data });
+          commit("MUTATE", { state: "user_task", data: res.data });
           commit("Dashboard/SET_LOADING", false, { root: true });
         })
         .catch((err) => {
@@ -71,7 +71,7 @@ export default {
       call("post", taskConstants.tasks, data)
         .then((res) => {
           commit("Dashboard/SET_LOADING", false, { root: true });
-          Event.$emit("ApiSuccess", res.data.data);
+          Event.$emit("ApiSuccess", res.data);
         })
         .catch((err) => {
           commit("Dashboard/SET_LOADING", false, { root: true });
@@ -83,7 +83,7 @@ export default {
       call("post", taskConstants.user_tasks, data)
         .then((res) => {
           commit("Dashboard/SET_LOADING", false, { root: true });
-          Event.$emit("ApiSuccess", res.data.data);
+          Event.$emit("ApiSuccess", res.data);
         })
         .catch((err) => {
           commit("Dashboard/SET_LOADING", false, { root: true });
@@ -95,7 +95,7 @@ export default {
       call("patch", `${taskConstants.tasks}/${data.id}`, data)
         .then((res) => {
           commit("Dashboard/SET_LOADING", false, { root: true });
-          Event.$emit("ApiSuccess", res.data.data);
+          Event.$emit("ApiSuccess", res.data);
         })
         .catch((err) => {
           commit("Dashboard/SET_LOADING", false, { root: true });
@@ -107,7 +107,7 @@ export default {
       call("patch", `${taskConstants.user_tasks}/${data.id}`, data)
         .then((res) => {
           commit("Dashboard/SET_LOADING", false, { root: true });
-          Event.$emit("ApiSuccess", res.data.data);
+          Event.$emit("ApiSuccess", res.data);
         })
         .catch((err) => {
           commit("Dashboard/SET_LOADING", false, { root: true });
@@ -119,7 +119,7 @@ export default {
       call("delete", `${taskConstants.tasks}/${id}`)
         .then((res) => {
           commit("Dashboard/SET_LOADING", false, { root: true });
-          Event.$emit("ApiSuccess", res.data.data);
+          Event.$emit("ApiSuccess", res.data);
         })
         .catch((err) => {
           commit("Dashboard/SET_LOADING", false, { root: true });
@@ -131,7 +131,7 @@ export default {
       call("delete", `${taskConstants.user_tasks}/${id}`)
         .then((res) => {
           commit("Dashboard/SET_LOADING", false, { root: true });
-          Event.$emit("ApiSuccess", res.data.data);
+          Event.$emit("ApiSuccess", res.data);
         })
         .catch((err) => {
           commit("Dashboard/SET_LOADING", false, { root: true });

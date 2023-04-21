@@ -9,14 +9,14 @@ export default {
     MUTATE() {},
   },
   getters: {
-    user: AuthService.user,
+    user: () => AuthService.user,
   },
   actions: {
     login: ({ commit }, data) => {
       commit("Dashboard/SET_LOADING", true, { root: true });
       call("post", AuthConstants.login, data)
         .then((res) => {
-          AuthService.login(res.data.data.token, res.data.data.user);
+          AuthService.login(res.data.token, res.data.user);
           Event.$emit("ApiSuccess", "Successfully Logged in");
           commit("Dashboard/SET_LOADING", false, { root: true });
         })
@@ -32,7 +32,7 @@ export default {
       call("post", AuthConstants.passwordReset, data)
         .then((res) => {
           commit("Dashboard/SET_LOADING", false, { root: true });
-          Event.$emit("ApiSuccess", res.data.data);
+          Event.$emit("ApiSuccess", res.data);
         })
         .catch((err) => {
           commit("Dashboard/SET_LOADING", false, { root: true });
@@ -46,7 +46,7 @@ export default {
         .then((res) => {
           commit("Dashboard/SET_LOADING", false, { root: true });
           Event.$emit("ApiSuccess", "success");
-          AuthService.login(res.data.data.token, res.data.data.user);
+          AuthService.login(res.data.token, res.data.user);
         })
         .catch((err) => {
           commit("Dashboard/SET_LOADING", false, { root: true });

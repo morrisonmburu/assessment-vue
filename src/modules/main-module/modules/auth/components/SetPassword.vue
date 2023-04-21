@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="mb-10"><Logo /></div>
+    <div class="mb-10">
+      <Logo :isCard="false" :width="'30%'" :height="'30%'" />
+    </div>
     <div class="text-justify mt-4 pb-0">
       <v-form ref="resetPasswordForm" @submit.prevent="reset">
         <v-alert type="info" text>

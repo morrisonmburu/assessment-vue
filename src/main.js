@@ -4,6 +4,7 @@ import router from "./router";
 import store from "./store";
 import VueI18n from "vue-i18n";
 /** misc npm packages */
+import "material-design-icons-iconfont/dist/material-design-icons.css";
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
 /** global mixins */
