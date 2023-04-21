@@ -1,11 +1,12 @@
 export default {
-    methods: {
-        getFormData(data) {
-            let formData = new FormData();
-            for (let key in data) {
-                formData.append(key, data[key]);
-            }
-            return formData;
-        },
-    }
-}
+  methods: {
+    prepareFormData(formData) {
+      const data = new FormData();
+      for (const key in formData) {
+        if (formData[key] === null) formData[key] = "";
+        data.append(key, formData[key]);
+      }
+      return data;
+    },
+  },
+};

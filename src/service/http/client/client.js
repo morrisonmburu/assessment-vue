@@ -1,6 +1,6 @@
 import axios from "axios";
 import { apiBaseUrl } from "@/environment/environment";
-import { AuthService } from "@/packages/dashboard/modules/auth";
+import { AuthService } from "@/modules/main-module/modules/auth";
 
 /**
  * Axios basic configuration

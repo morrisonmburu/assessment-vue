@@ -1,12 +1,7 @@
 <template>
   <div>
     <v-card :width="isCard ? '50%' : '100%'" flat>
-      <v-img
-        :height="height"
-        :width="width"
-        src="../assets/logo.png"
-        contain
-      />
+      <v-img :height="height" :width="width" src="../assets/logo.png" contain />
     </v-card>
   </div>
 </template>

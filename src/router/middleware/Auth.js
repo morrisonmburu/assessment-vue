@@ -1,4 +1,4 @@
-import { AuthService } from "@/modules/dashboard/modules/auth/index";
+import { AuthService } from "@/modules/main-module/modules/auth/index";
 import router from "@/router";
 
 export default function auth({ next /**router*/ }) {

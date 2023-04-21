@@ -1,4 +1,4 @@
 export default {
-    tasks: "tasks",
-    user_tasks: "user_tasks",
-}
+  tasks: "tasks",
+  user_tasks: "user_tasks",
+};

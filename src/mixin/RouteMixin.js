@@ -1,4 +1,4 @@
-import { helper } from "@/packages/dashboard/utils";
+import { helper } from "@/utils";
 export default {
   methods: {
     decryptObj(obj) {

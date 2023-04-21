@@ -34,6 +34,5 @@ export default {
     getDateFormat(date) {
       return moment(date).format("Do ddd, MMM YYYY");
     },
-  
   },
 };
