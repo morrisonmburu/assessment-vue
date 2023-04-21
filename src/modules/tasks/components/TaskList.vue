@@ -212,7 +212,12 @@ export default {
               title: "Delete Task",
               text: "Are you sure you want to delete this task?",
               onConfirm: () => {
-                this.$store.dispatch("Task/deleteTask", item.id);
+                this.isUserTasks
+                  ? this.$store.dispatch(
+                      "Task/deleteUserTask",
+                      item.user_task_id
+                    )
+                  : this.$store.dispatch("Task/deleteTask", item.id);
               },
             });
           },
