@@ -1,0 +1,17 @@
+.drawer--active {
+    background-color: var(--v-primary-base) !important;
+    position: relative
+}
+
+.drawer--active:after {
+    content: '';
+    position: absolute;
+    border-left: 6px solid var(--v-secondary-base);
+    left: 5px;
+    border-radius: 5px;
+}
+.drawer--active.v-list-item--active:after {
+    content: "";
+    min-height: 75%;
+    font-size: 0;
+}
