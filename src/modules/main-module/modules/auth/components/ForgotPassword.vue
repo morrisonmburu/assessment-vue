@@ -4,19 +4,21 @@
       <Logo :isCard="false" :width="'30%'" :height="'30%'" />
     </div>
     <div class="text-justify mt-4 pb-0">
-      <v-text-field
-        ref="email"
-        v-model="formData.email_address"
-        dense
-        outlined
-        @copy.prevent
-        @paste.prevent
-        type="email"
-        prepend-inner-icon="email"
-        label="Your E-mail"
-        persistent-placeholder
-        :rules="rules.email"
-      />
+      <v-form v-model="isValid" ref="passwordForm">
+        <v-text-field
+          ref="email"
+          v-model="formData.email_address"
+          dense
+          outlined
+          @copy.prevent
+          @paste.prevent
+          type="email"
+          prepend-inner-icon="email"
+          label="Your E-mail"
+          persistent-placeholder
+          :rules="rules.email"
+        />
+      </v-form>
     </div>
 
     <v-card-actions class="">
@@ -47,6 +49,7 @@ export default {
       formData: {
         email_address: "",
       },
+      isValid: false,
     };
   },
   computed: {
@@ -61,11 +64,7 @@ export default {
   },
   methods: {
     reset: function () {
-      let isValid = true;
-      for (const key in this.formData) {
-        isValid = isValid ? this.$refs[key].validate(true) : false;
-      }
-      if (isValid) {
+      if (this.$refs.passwordForm.validate()) {
         this.$store.dispatch("Auth/forgotPassword", { ...this.formData });
       }
     },
