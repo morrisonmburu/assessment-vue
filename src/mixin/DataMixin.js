@@ -22,5 +22,19 @@ export default {
           return "primary";
       }
     },
+    getStatusChartColor(status) {
+      switch (status) {
+        case "New":
+          return "#1976d2";
+        case "In Progress":
+          return "#ff9800";
+        case "Ready for Review":
+          return "#00bcd4";
+        case "Done":
+          return "#4caf50";
+        default:
+          return "#1976d2";
+      }
+    },
   },
 };

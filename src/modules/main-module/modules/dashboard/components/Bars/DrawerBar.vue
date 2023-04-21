@@ -10,7 +10,12 @@
   >
     <div class="d-flex justify-center mt-3">
       <v-avatar :size="mini ? '40' : '80'">
-        <Logo :width="'15%'" :height="'15%'" :isCard="false" />
+        <Logo
+          :width="'40%'"
+          :height="'40%'"
+          :isCard="false"
+          :logoPath="'logo2.png'"
+        />
       </v-avatar>
     </div>
     <v-list flat>

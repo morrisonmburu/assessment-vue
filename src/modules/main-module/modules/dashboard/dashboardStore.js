@@ -1,5 +1,6 @@
 import _ from "lodash";
-// import dashboardConstants from "./dashboardConstants";
+import dashboardConstants from "./dashboardConstants";
+import { call } from "@/service";
 import { AuthService } from "../auth";
 
 export default {
@@ -9,6 +10,7 @@ export default {
     miniDrawer: false,
     dialogLoading: false,
     links: [],
+    stats: {},
   },
   mutations: {
     SET_LOADING: (state, payload) => {
@@ -34,6 +36,10 @@ export default {
     SET_MINI_DRAWER: (state, payload) => {
       state.miniDrawer = payload;
     },
+
+    SET_STATS: (state, payload) => {
+      state.stats = payload;
+    },
   },
 
   getters: {
@@ -43,6 +49,7 @@ export default {
       return _.orderBy(state.links, (link) => link.order);
     },
     miniDrawer: (state) => state.miniDrawer,
+    stats: (state) => state.stats,
   },
 
   actions: {
@@ -52,6 +59,19 @@ export default {
 
     setLinks: ({ commit }, data) => {
       commit("SET_LINKS", data);
+    },
+
+    getStats: ({ commit }) => {
+      commit("SET_LOADING", true);
+      call("get", dashboardConstants.stats)
+        .then((res) => {
+          commit("SET_STATS", res.data);
+          commit("SET_LOADING", false);
+        })
+        .catch((err) => {
+          commit("SET_LOADING", false);
+          console.log(err);
+        });
     },
   },
 };

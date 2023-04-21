@@ -15,3 +15,7 @@
     min-height: 75%;
     font-size: 0;
 }
+
+.main--landing {
+    background: var(--v-mainBackground-lighten1) !important;
+}

@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card :width="isCard ? '50%' : '100%'" flat>
-      <v-img :height="height" :width="width" src="../assets/logo.png" contain />
+      <v-img :height="height" :width="width" :src="logo" contain />
     </v-card>
   </div>
 </template>
@@ -23,6 +23,15 @@ export default {
       default: () => true,
     },
     rounded: {},
+    logoPath: {
+      type: String,
+      default: "logo.png",
+    },
+  },
+  computed: {
+    logo() {
+      return require(`../assets/${this.logoPath}`);
+    },
   },
 };
 </script>

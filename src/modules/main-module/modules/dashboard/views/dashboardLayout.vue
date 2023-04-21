@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire" style="background-color: #f0f0f0">
+  <v-app id="inspire" class="main--landing">
     <AppBarTopVue />
     <DrawerBarVue />
     <v-container>
